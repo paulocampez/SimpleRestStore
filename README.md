@@ -1,6 +1,6 @@
-# Project Title
+# Simple Rest Aplication
 
-Simple Rest Aplication
+
 
 ## Running the tests
 
