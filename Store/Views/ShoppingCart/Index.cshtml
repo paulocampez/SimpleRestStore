@@ -1,0 +1,64 @@
+﻿@using System.Globalization
+@model Store.ViewModel.ShoppingCartViewModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Carrinho";
+    CultureInfo br = new CultureInfo("pt-BR");
+}
+@*<link href="//netdna.bootstrapcdn.com/bootst1rap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>*@
+<!------ Include the above in your HEAD tag ---------->
+<br />
+<br />
+<br />
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+<table class="table table-hover table-condensed">
+    <tr>
+        <th style="width:50%">
+            Produto
+        </th>
+        <th style="width:10%">
+            Preço
+        </th>
+        <th style="width:8%">
+            Numero
+        </th>
+        <th style="width:22%">
+            Soma
+        </th>
+    </tr>
+    @foreach (var item in Model.CartItems)
+    {
+        <tr id="row-@item.IdProduct">
+            <td>
+                @Html.ActionLink(item.Product.ProductName, "Details", "Products", new { id = item.IdProduct, price = item.Product.NetUnitPrice, item.Product.Genre }, null)
+            </td>
+            <td>
+                @item.Product.NetUnitPrice.ToString("c", br)
+            </td>
+            <td id="item-count-@item.IdProduct">
+                @item.Quantity
+            </td>
+            <td>
+                @((item.Product.NetUnitPrice * item.Quantity).ToString("c", br))
+            </td>
+            <td>
+                @Html.ActionLink("Remover do Carrinho", "RemoveFromCart", "ShoppingCart", new { id = item.IdProduct }, null)
+            </td>
+        </tr>
+    }
+    <tr>
+        <td>
+            Total
+        </td>
+        <td></td>
+        <td></td>
+        <td id="cart-total" class="text-success">
+            <b>@Model.Total.ToString("C", br)</b>
+        </td>
+    </tr>
+</table>
+@Html.ActionLink("Continuar Comprando", "Index", "Album", new { subject = "rock" }, new { @class = "btn btn-info" })
+@Html.ActionLink("Finalizar Compra", "Checkout", "ShoppingCart", new { @class = "btn btn-info" })

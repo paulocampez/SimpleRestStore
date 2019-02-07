@@ -1,0 +1,12 @@
+﻿@model IEnumerable<Store.Models.Genre>
+@{}
+
+
+<div class="jumbotron">
+    <h1>Bem-Vindo</h1>
+    <p class="lead">Navegue pelo site e selecione seu estilo de disco preferido.</p>
+    @foreach (var genres in Model)
+    {
+        <p><a href="@Url.Action("Index", "Album", new { subject = genres.Name })" class="btn btn-primary btn-lg">@genres.Name</a></p>
+    }
+</div>

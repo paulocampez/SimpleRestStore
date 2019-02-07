@@ -1,0 +1,75 @@
+﻿@model Store.Models.Shopping.Orders
+
+@{
+}
+
+<br />
+<br />
+<br />
+<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+<div class="btn-toolbar">
+    <button class="btn btn-primary">Home</button>
+</div>
+
+<h4>Products</h4>
+
+<div class="well">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Album</th>
+                <th>Price</th>
+                <th>Cashback</th>
+                <th>Genre</th>
+                <th>View</th>
+            </tr>
+        </thead>
+        @foreach (var product in Model.CartItems)
+        {
+            <tbody>
+                <tr>
+                    <td>@Html.DisplayName(product.Product.ProductName)</td>
+                    <td>@Html.DisplayName(product.Product.NetUnitPrice.ToString())</td>
+                    <td>@Html.DisplayName(product.Product.Discount.ToString())</td>
+                    <td>@Html.DisplayName(product.Product.Genre)</td>
+                    <td>
+                        <a href="@Url.Action("Details", "Product", new {price = product.Product.NetUnitPrice, genre = product.Product.Genre, id = product.Product.ProductId})">View</a>
+                    </td>
+                </tr>
+            </tbody>
+        }
+
+    </table>
+</div>
+
+<hr />
+
+<h4>Order</h4>
+
+<div class="well">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Total</th>
+                <th>Discount</th>
+                <th>Creation Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>@Html.DisplayFor(model => model.Total)</td>
+                <td>@Html.DisplayFor(model => model.TotalDiscout)</td>
+                <td>@Html.DisplayFor(model => model.CreationDate)</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
