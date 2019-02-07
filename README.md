@@ -13,8 +13,13 @@ SQL Server Express LocalDB (to run locally)
 Build the solution.
 
 Open the Package Manager Console (Tools > NuGet Package Manager > Package Manager Console)
+000
+In the Package Manager Console window, enter the following commands: 
+install-package Newtonsoft.Json -version 12.0.1 (Store)
+install-package Newtonsoft.Json -version 12.0.1 (SpotifyAPI)
 
-In the Package Manager Console window, enter the following command: Update-Database
+Update-Database
+
 
 Press F5 to debug.
 
