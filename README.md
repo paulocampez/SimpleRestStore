@@ -16,11 +16,11 @@ Open the Package Manager Console (Tools > NuGet Package Manager > Package Manage
 
 In the Package Manager Console window, enter the following commands: 
 
--install-package Newtonsoft.Json -version 12.0.1 (Store)
+- install-package Newtonsoft.Json -version 12.0.1 (Store)
 
--install-package Newtonsoft.Json -version 12.0.1 (SpotifyAPI)
+- install-package Newtonsoft.Json -version 12.0.1 (SpotifyAPI)
 
--Update-Database
+- Update-Database
 
 
 Press F5 to debug.
