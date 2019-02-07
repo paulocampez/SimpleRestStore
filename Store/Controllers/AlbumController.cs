@@ -26,7 +26,7 @@ namespace Store.Controllers
             ViewBag.CurrentFilter = genres;
 
             //auententicacao de usuario
-            //Spotify spotifyApi = new Spotify();
+            Spotify spotifyApi = new Spotify();
             //var authenticate = Spotify.Api.AuthenticateWithToken();
 
             //Metodo para listar albuns por genero atraves do artista (Problema de performance)

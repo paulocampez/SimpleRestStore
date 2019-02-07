@@ -49,7 +49,7 @@ namespace Store.Controllers
         private Product AddProductFromSpotify(string id, string price, string genre)
         {
             //autenticação por usuario
-            //Spotify spotifyApi = new Spotify();
+            Spotify spotifyApi = new Spotify();
             //var authenticate = Spotify.Api.AuthenticateWithToken();
             Album album = JsonConvert.DeserializeObject<Album>(Spotify.Api.GetAlbum(id));
 

@@ -133,7 +133,7 @@ namespace Store.Controllers
         public ActionResult Details(decimal price, string id, string genre)
         {
             //autenticação por usuario
-            //Spotify spotifyApi = new Spotify();
+            Spotify spotifyApi = new Spotify();
             //var authenticate = Spotify.Api.AuthenticateWithToken();
             Album album = JsonConvert.DeserializeObject<Album>(Spotify.Api.GetAlbum(id));
             album.Discount = Helpers.DayOfWeek.CheckCashbackByDayAndGenre(genre);

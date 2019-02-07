@@ -29,7 +29,7 @@ namespace Store.Areas.HelpPage.Controllers
 
         public ActionResult Index()
         {
-            //Spotify spotifyApi = new Spotify();
+            Spotify spotifyApi = new Spotify();
             //var authenticate = Spotify.Api.AuthenticateWithToken();
             //Album album = JsonConvert.DeserializeObject<Album>(Spotify.Api.GetAlbum("4aawyAB9vmqN3uQ7FjRGTy"));
             ViewBag.DocumentationProvider = Configuration.Services.GetDocumentationProvider();
